@@ -268,9 +268,28 @@ console.log( 'The unique vendors are:', uniqueVendors );
   - Make sure that the resulting array *does not* include any duplicates.
 */
 
+customerList = [];
+
+transactions.forEach( function(transaction){
+  if ( !customerList.includes(transaction.customer) ){
+    return customerList.push(transaction.customer);
+  }
+});
+
+
+customerList = customerList.filter( function(customer){
+  return customer != undefined;
+});
 
 var uniqueCustomers = '';
 
+customerList.forEach( function(customer,index){
+  if(index == 0){
+    uniqueCustomers += customer;
+  }else{
+    uniqueCustomers += ', '+customer;
+  }
+});
 
 console.log( 'The unique customers are:', uniqueCustomers );
 
