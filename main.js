@@ -355,7 +355,17 @@ console.log( 'The sum of all items for the first sales is: ', sumSales );
   - Make sure to include 'price' information from *all* purchases.
 */
 
-var sumPurchases;
+var allItemsPrices = [];
+
+purchases.forEach(function(purchase){
+  purchase.items.forEach(function(item){
+    allItemsPrices.push(item.price);
+  });
+});
+
+var sumPurchases = allItemsPrices.reduce( function(accumulator, currentValue){
+  return accumulator + currentValue;
+});
 
 console.log( 'The sum of all purhcases is:', sumPurchases );
 
