@@ -1,3 +1,4 @@
+
 var transactions = [
   {
     type: 'sale',
@@ -223,7 +224,33 @@ console.log( 'The total number of credit purchases is:', numCreditPurchases );
   - The assembled array should be made up of strings, not full `transaction` objects.
   - This array is allowed to contain duplicate values.
 */
-var uniqueVendors;
+
+//get a list of all the vendors by iterating through each object of the transactions array
+// var vendors = transactions.map(function(transaction){
+//     return transaction.vendor
+// });
+
+vendorsList = [];
+
+transactions.forEach( function(transaction){
+  if ( !vendorsList.includes(transaction.vendor) ){
+    return vendorsList.push(transaction.vendor);
+  }
+});
+
+vendorsList = vendorsList.filter( function(vendor){
+  return vendor != undefined;
+});
+
+var uniqueVendors = '';
+
+vendorsList.forEach( function(vendor,index) {
+  if ( index == 0 ){
+    uniqueVendors += vendor;
+  } else {
+    uniqueVendors += ', '+ vendor;
+  }
+});
 
 console.log( 'The unique vendors are:', uniqueVendors );
 
@@ -240,7 +267,10 @@ console.log( 'The unique vendors are:', uniqueVendors );
   - The assembled array should be made up of strings, not full `transaction` objects.
   - Make sure that the resulting array *does not* include any duplicates.
 */
-var uniqueCustomers;
+
+
+var uniqueCustomers = '';
+
 
 console.log( 'The unique customers are:', uniqueCustomers );
 
