@@ -383,7 +383,20 @@ console.log( 'The sum of all purhcases is:', sumPurchases );
   HINT(S):
   - Unlike 'QUESTION 08' and 'QUESTION 09', here we're interested in both 'sale' and 'purchase' transactions.
 */
-var netProfit;
+
+var allItemsPricesSales = [];
+
+sales.forEach(function(sale){
+  sale.items.forEach(function(item){
+    allItemsPricesSales.push(item.price);
+  });
+});
+
+var sumAllSales = allItemsPricesSales.reduce( function(accumulator, currentValue){
+  return accumulator + currentValue;
+});
+console.log(sumAllSales);
+var netProfit = sumAllSales + sumPurchases;
 
 console.log( 'The net profit is:', netProfit );
 
@@ -397,9 +410,8 @@ console.log( 'The net profit is:', netProfit );
   HINTS:
   - The result of this calculation should be a number (not an array, object, or other data type).
 */
-var mostItems;
 
-console.log( 'The most items sold in a single transaction is:', mostItems );
+
 
 
 // --------------------------------------------------
