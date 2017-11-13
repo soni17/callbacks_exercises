@@ -411,7 +411,14 @@ console.log( 'The net profit is:', netProfit );
   - The result of this calculation should be a number (not an array, object, or other data type).
 */
 
+var items = sales.map( function(sale){
+  return sale.items.length;
+});
 
+sortedItems = items.sort();
+var mostItems = sortedItems.pop();
+
+console.log( 'The most items sold in a single transaction is:', mostItems );
 
 
 // --------------------------------------------------
