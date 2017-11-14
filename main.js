@@ -367,6 +367,8 @@ var sumPurchases = allItemsPrices.reduce( function(accumulator, currentValue){
   return accumulator + currentValue;
 });
 
+sumPurchases = sumPurchases * -1;
+
 console.log( 'The sum of all purhcases is:', sumPurchases );
 
 
@@ -395,8 +397,8 @@ sales.forEach(function(sale){
 var sumAllSales = allItemsPricesSales.reduce( function(accumulator, currentValue){
   return accumulator + currentValue;
 });
-console.log(sumAllSales);
-var netProfit = sumAllSales + sumPurchases;
+
+var netProfit = sumAllSales - sumPurchases;
 
 console.log( 'The net profit is:', netProfit );
 
@@ -436,7 +438,7 @@ purchases = purchases.map( function(purchase){
 
 purchase =  purchases.sort(function(a,b){
     return a.numItems - b.numItems;
-  })
+  });
 
 var prices = purchase[0].items.map(function(item){
   return item.price* -1;
